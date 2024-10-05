@@ -1,15 +1,22 @@
-const crops = [
-    { name: "Wheat", bestPractices: "Plant in well-drained soil." },
-    { name: "Rice", bestPractices: "Requires a lot of water; monitor pH." },
-    { name: "Corn", bestPractices: "Needs full sun and rich soil." },
-    { name: "Soybean", bestPractices: "Rotate with other crops." },
+const cropsData = [
+    { name: "Wheat", bestPractices: "Ensure proper irrigation and pest control." },
+    { name: "Rice", bestPractices: "Plant in flooded fields to control weeds." },
+    { name: "Corn", bestPractices: "Use crop rotation to improve soil health." },
+    { name: "Barley", bestPractices: "Harvest when moisture content is low." },
+    { name: "Soybean", bestPractices: "Inoculate seeds with rhizobia." },
 ];
 
-const soilTips = [
-    "Test your soil pH regularly.",
-    "Add organic matter to improve soil structure.",
-    "Use cover crops to prevent erosion."
+const soilTipsData = [
+    "Maintain soil pH between 6.0 and 7.5.",
+    "Use organic matter to improve soil structure.",
+    "Regularly test soil for nutrient levels.",
+    "Rotate crops to prevent soil nutrient depletion."
 ];
+
+function loadData() {
+    displayCrops(cropsData);
+    displaySoilTips(soilTipsData);
+}
 
 function displayCrops(cropList) {
     const cropContainer = document.getElementById("cropList");
@@ -30,18 +37,15 @@ function displayCrops(cropList) {
     });
 }
 
-function searchCrops() {
-    const searchValue = document.getElementById("cropSearch").value.toLowerCase();
-    const filteredCrops = crops.filter(crop => crop.name.toLowerCase().includes(searchValue));
-    displayCrops(filteredCrops);
-}
-
-function loadSoilTips() {
+function displaySoilTips(soilTips) {
     const soilTipContainer = document.getElementById("soilTips");
     soilTipContainer.innerHTML = soilTips.join("<br>");
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    displayCrops(crops); // Show all crops on page load
-    loadSoilTips(); // Load soil tips on page load
-});
+function searchCrops() {
+    const searchValue = document.getElementById("cropSearch").value.toLowerCase();
+    const filteredCrops = cropsData.filter(crop => crop.name.toLowerCase().includes(searchValue));
+    displayCrops(filteredCrops);
+}
+
+document.addEventListener("DOMContentLoaded", loadData);
