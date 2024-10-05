@@ -3,33 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop and Soil Management System</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <title>Crop and Soil Management System</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center text-success">Crop and Soil Management System</h1>
+    <div class="container">
+        <header class="text-center my-4">
+            <h1>Crop and Soil Management System</h1>
+            <p class="lead">Helping farmers achieve agricultural productivity and sustainability.</p>
+        </header>
 
-        <div class="section mt-4">
-            <h2 class="text-primary">Crop Selection</h2>
-            <ul id="cropList" class="list-group"></ul>
-        </div>
+        <section id="crops" class="mb-5">
+            <h2 class="text-primary">Crops</h2>
+            <div class="input-group mb-3">
+                <input type="text" id="cropSearch" class="form-control" placeholder="Search for crops...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" onclick="searchCrops()">Search</button>
+                </div>
+            </div>
+            <div id="cropList" class="row"></div>
+        </section>
 
-        <div class="section mt-4">
-            <h2 class="text-primary">Soil Management</h2>
-            <h3 class="text-secondary">Current Soil Conditions</h3>
-            <p id="soilPh" class="lead"></p>
-            <p id="soilMoisture" class="lead"></p>
-            <p id="soilNutrients" class="lead"></p>
-            <button id="updateSoil" class="btn btn-success">Update Soil Data</button>
-        </div>
+        <section id="soil" class="mb-5">
+            <h2 class="text-success">Soil Management Tips</h2>
+            <p id="soilTips">Loading soil tips...</p>
+        </section>
 
-        <div class="section mt-4">
-            <h2 class="text-primary">Disease Identification</h2>
-            <ul id="diseaseList" class="list-group"></ul>
-        </div>
+        <section id="diseases" class="mb-5">
+            <h2 class="text-danger">Common Crop Diseases</h2>
+            <p>Identify and manage diseases affecting your crops:</p>
+            <ul id="diseaseList" class="list-group">
+                <li class="list-group-item">Fungal Diseases</li>
+                <li class="list-group-item">Bacterial Diseases</li>
+                <li class="list-group-item">Viral Diseases</li>
+            </ul>
+        </section>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
